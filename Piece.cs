@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PuzzleSolver;
+namespace TilePuzzle;
 public class Piece
 {
     public List<OrientedPiece> OrientedPieces { get; }

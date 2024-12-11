@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using PuzzleSolver;
+using TilePuzzle;
 
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
