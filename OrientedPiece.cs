@@ -12,18 +12,21 @@ public class OrientedPiece
     public int[,] Grid { get; }
     public int Angle { get; }
     public bool IsFlipped { get; }
+    public Piece Piece { get; }
 
-    public OrientedPiece(int width, int height, int angle, bool isFlipped)
+    public OrientedPiece(int width, int height, int angle, bool isFlipped, Piece piece)
     {
         Grid = new int[width, height];
         Angle = angle;
         IsFlipped = isFlipped;
+        Piece = piece;
     }
-    public OrientedPiece(int[,] grid, int angle, bool isFlipped)
+    public OrientedPiece(int[,] grid, int angle, bool isFlipped, Piece piece)
     {
         Grid = grid;
         Angle = angle;
         IsFlipped = isFlipped;
+        Piece = piece;
     }
 
     public int Width() => Grid.GetLength(0);
@@ -33,11 +36,11 @@ public class OrientedPiece
     {
         var angle = Angle + 90;
         if (angle == 360) angle = 0;
-        return new OrientedPiece(RotateArray(Grid), angle, IsFlipped);
+        return new OrientedPiece(RotateArray(Grid), angle, IsFlipped, Piece);
     }
     public OrientedPiece CloneFlip()
     {
-        return new OrientedPiece(FlipArray(Grid), Angle, !IsFlipped);
+        return new OrientedPiece(FlipArray(Grid), Angle, !IsFlipped, Piece);
     }
 
     static int[,] RotateArray(int[,] array)

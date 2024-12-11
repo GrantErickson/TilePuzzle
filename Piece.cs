@@ -24,7 +24,7 @@ public class Piece
                 newGrid[y, x] = grid[x,y];
             }
         }
-        var op = new OrientedPiece(newGrid, 0, false);
+        var op = new OrientedPiece(newGrid, 0, false, this);
         //op = op.CloneRotate();
         //op = op.CloneFlip();
         //op = new OrientedPiece(op.Grid, 0, false);
