@@ -94,26 +94,6 @@ public class OrientedPiece
 
     public override string ToString()
     {
-        StringBuilder result = new();
-        for (int j = 0; j < Grid.GetLength(1); j++)
-        {
-            for (int i = 0; i < Grid.GetLength(0); i++)
-            {
-                char c = '▮';
-                var value = Grid[i, j];
-                if (value == 0) c = ' ';
-                if (value == 45) c = '◣';
-                if (value == 135) c = '◤';
-                if (value == 225) c = '◥';
-                if (value == 315) c = '◢';
-                if (value == -45) c = '◺';
-                if (value == -135) c = '◸';
-                if (value == -225) c = '◹';
-                if (value == -315) c = '◿';
-                result.Append(c);
-            }
-            result.AppendLine();
-        }
-        return result.ToString();
+        return Grid.Print();
     }
 }

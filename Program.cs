@@ -47,11 +47,17 @@ pieces.Add(new Piece(new int[3, 3]{
     { 1, 1, 45 },
 }));
 
-foreach(var piece in pieces)
-{
-    Console.WriteLine("-------------------------");
-    Console.WriteLine(piece);
-}
+
+Board board = new(9, 6);
+board.Solve(pieces);
+
+Console.WriteLine(board);
+
+//foreach (var piece in pieces)
+//{
+//    Console.WriteLine("-------------------------");
+//    Console.WriteLine(piece);
+//}
 
 
 
