@@ -14,6 +14,24 @@ public class OrientedPiece
     public bool IsFlipped { get; }
     public Piece Piece { get; }
 
+    public string PieceNumber
+    {
+        get
+        {
+            return $"{Piece.PieceNumber}:{AngleSymbol}{IsFlippedSymbol}";
+        }
+    }
+
+    public string AngleSymbol { get
+        {
+            if (Angle == 0) return "🡑";
+            if (Angle == 90) return "🡒";
+            if (Angle == 180) return "🡓";
+            if (Angle == 270) return "🡐";
+            return "▮";
+        } }
+    public string IsFlippedSymbol => IsFlipped ? "🡘" : " ";
+
     public OrientedPiece(int width, int height, int angle, bool isFlipped, Piece piece)
     {
         Grid = new int[width, height];

@@ -9,8 +9,10 @@ namespace TilePuzzle;
 public class Piece
 {
     public List<OrientedPiece> OrientedPieces { get; }
-    public Piece(int[,] grid)
+    public int PieceNumber { get; }
+    public Piece(int pieceNumber, int[,] grid)
     {
+        PieceNumber = pieceNumber;
         OrientedPieces = new List<OrientedPiece>();
         // fix the piece orientation because we want it to be easy to build the arrays.
         var cols = grid.GetLength(0);

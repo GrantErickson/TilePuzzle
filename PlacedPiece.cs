@@ -12,6 +12,11 @@ namespace TilePuzzle
         public int Y { get; }
         public OrientedPiece OrientedPiece { get; }
         public int[,] Grid { get; }
+        public string PlacementText { get
+            {
+                return $"{OrientedPiece.PieceNumber} at {X},{Y} ";
+            }
+        }
 
         public PlacedPiece(int x, int y, OrientedPiece orientedPiece, int[,] grid)
         {
