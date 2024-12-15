@@ -95,6 +95,7 @@ internal static class ArrayHelpers
                     var emptyCells = EmptyNeighbors(grid, x, y);
                     if (emptyCells < 6)
                     {
+                        //Console.WriteLine(grid.Print());
                         grid.Clean();
                         return false;
                     }
@@ -104,6 +105,7 @@ internal static class ArrayHelpers
         }
         // Remove all the 2s from the grid
         // This is done instead of creating a new grid to save memory and maybe for speed
+        //Console.WriteLine(grid.Print());
         grid.Clean();
         return true;
     }

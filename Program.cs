@@ -41,18 +41,53 @@ pieces.Add(new Piece(8, new int[2, 4]{
     { 1, 45, 0, 0 },
     { 1, 1, 1, 1 },
 }));
+// Original piece that has to be put in at an angle
+//pieces.Add(new Piece(9, new int[3, 3]{
+//    { 45, 0 ,0 },
+//    { 1, 1, 0 },
+//    { 1, 1, 45 },
+//}));
+// New piece that is essentially the angle piece rotated 45 degrees
 pieces.Add(new Piece(9, new int[3, 3]{
-    { 45, 0 ,0 },
-    { 1, 1, 0 },
-    { 1, 1, 45 },
+    { 1, 45, 0 },
+    { 1, 1, 1 },
+    { 1, 0 ,0 },
 }));
+//pieces.Add(new Piece(9, new int[4, 2]{
+//    { 1, 1 },
+//    { 1, 1 },
+//    { 1, 0 },
+//    { 1, 0 },
+//}));
 
+//pieces.Add(new Piece(9, new int[6, 1]{
+//    { 45 },
+//    { 1 },
+//    { 1 },
+//    { 1 },
+//    { 1 },
+//    { 225 },
+//}));
+//foreach(var piece in pieces)
+//{
+//    Console.WriteLine($"Piece: { piece.PieceNumber}");
+//    Console.WriteLine(piece);
+//    Console.WriteLine("*******************");
+//    Console.WriteLine();
+//}
 
 Board board = new(9, 6);
 int[,] grid = new int[9, 6];
 board.Solve(grid, pieces);
 
-Console.WriteLine(grid.Print());
+if (board.Solution == null)
+{
+    Console.WriteLine("No solution found.");
+}
+else
+{
+    Console.WriteLine(board.Solution.Print());
+}
 
 //foreach (var piece in pieces)
 //{
