@@ -44,7 +44,8 @@ internal static class ArrayHelpers
         if (value == -135) return '◸';
         if (value == -225) return '◹';
         if (value == -315) return '◿';
-        if (value == -180 || value == 180) return '▭';
+        if (value == -180) return '◩'; // Note: this isn't quite right
+        if (value == 180) return '◪'; // Note: this isn't quite right
         return 'o';
     }
 
