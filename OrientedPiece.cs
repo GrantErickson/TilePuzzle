@@ -47,8 +47,8 @@ public class OrientedPiece
         Piece = piece;
     }
 
-    public int Width() => Grid.GetLength(0);
-    public int Height() => Grid.GetLength(1);
+    public int Width => Grid.GetLength(0);
+    public int Height => Grid.GetLength(1);
 
     public OrientedPiece CloneRotate()
     {

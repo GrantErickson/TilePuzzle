@@ -45,7 +45,7 @@ internal static class ArrayHelpers
         if (value == -225) return '◹';
         if (value == -315) return '◿';
         if (value == -180 || value == 180) return '▭';
-        throw new Exception($"Unknown value: {value}");
+        return 'o';
     }
 
     public static string Print(this int[,] grid)
@@ -81,17 +81,24 @@ internal static class ArrayHelpers
 
     public static bool IsGridValid(this int[,] grid, int min)
     {
+        //Console.WriteLine(grid.Print());
         // Make sure the grid has all spaces that have at least [min] free cells
         // loop through the array and find empty cells
-        for (int x = 0; x < grid.GetLength(0); x++)
+        for (int y = 0; y < grid.GetLength(1); y++)
         {
-            for (int y = 0; y < grid.GetLength(1); y++)
+            for (int x = 0; x < grid.GetLength(0); x++)
             {
                 if (grid[x, y] <= 0)
                 {
+                    //Console.WriteLine(grid.Print());
                     // find the largest empty space
                     var emptyCells = EmptyNeighbors(grid, x, y);
-                    if (emptyCells < 6) return false;
+                    if (emptyCells < 6)
+                    {
+                        grid.Clean();
+                        return false;
+                    }
+                    //Console.WriteLine(grid.Print());
                 }
             }
         }
@@ -102,6 +109,7 @@ internal static class ArrayHelpers
     }
     public static int EmptyNeighbors(int[,] grid, int x, int y)
     {
+        //Console.WriteLine(grid.Print());
         // Check bounds
         if (x < 0 || x >= grid.GetLength(0) || y < 0 || y >= grid.GetLength(1)) return 0;
         // check if the cell is empty
@@ -112,9 +120,9 @@ internal static class ArrayHelpers
         int count = 1;
         // check the neighbors
         if (x > 0) count += EmptyNeighbors(grid, x - 1, y);
-        if (x < grid.GetLength(1) - 1) count += EmptyNeighbors(grid, x + 1, y);
+        if (x < grid.GetLength(0) - 1) count += EmptyNeighbors(grid, x + 1, y);
         if (y > 0) count += EmptyNeighbors(grid, x, y - 1);
-        if (y < grid.GetLength(0) - 1) count += EmptyNeighbors(grid, x, y + 1);
+        if (y < grid.GetLength(1) - 1) count += EmptyNeighbors(grid, x, y + 1);
         return count;
     }
 }
