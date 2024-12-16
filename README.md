@@ -37,3 +37,4 @@ Also, while I was tracking the approximate (no x and y offsets) locations of the
 
 BTW: I just wanted to get this done, so there are probably lots of little issues here that need to get cleaned up. Please don't take this as pristine code.
 
+BTW2: There is a solution image in the repo in case you want to know what it should look like.
