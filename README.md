@@ -24,6 +24,16 @@ I thought that the process for solving was interesting and the fact the the corn
 1. Find the next open spot and place the next piece there that fits. 
 1. Recursively do this until all the pieces are placed. 
 
-Doing the validity checks and making sure that if there is a space that can't be filled, the program backtracks and tries a different piece in the location iteratively finding the solution.
+One of the keys to speed was checking if there was an enclosed space that wasn't at least squares in size. If so, the program backtracks and tries a different piece in the location iteratively finding the solution.
+
+Additionally, this puzzle was challenging because it had the partial pieces. Some pieces were concave and some were convex. The general approach for the array values was as follows.
+1. Empty Square: 0
+2. Full square: 1
+3. Convex partial: +45, +135, +225, +315. This way I knew which concave pieces would fit.
+4. Concave partial: -45, -135, -225, -315. If these would combine the additive value would be either 180 or -180.
+5. If it was combined: -180 or 180. This does lose some data and would have been nice to display.
+
+Also, while I was tracking the approximate (no x and y offsets) locations of the pieces, it would have been cool to show the pieces in the output in color so each piece was obvious on the printouts. 
 
 BTW: I just wanted to get this done, so there are probably lots of little issues here that need to get cleaned up. Please don't take this as pristine code.
+
