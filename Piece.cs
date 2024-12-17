@@ -27,17 +27,29 @@ public class Piece
             }
         }
         var op = new OrientedPiece(newGrid, 0, false, this);
-        //op = op.CloneRotate();
-        //op = op.CloneFlip();
-        //op = new OrientedPiece(op.Grid, 0, false);
         OrientedPieces.Add(op);
         OrientedPieces.Add(op.CloneFlip());
         for (int x = 0; x < 3; x++)
         {
             op = op.CloneRotate();
+            if (IsDuplicate(op)) continue;
             OrientedPieces.Add(op);
-            OrientedPieces.Add(op.CloneFlip());
+            var opFlip = op.CloneFlip();
+            if (IsDuplicate(opFlip)) continue;
+            OrientedPieces.Add(opFlip);
         }
+    }
+
+    private bool IsDuplicate(OrientedPiece op)
+    {
+        foreach (var oPiece in OrientedPieces)
+        {
+            if (oPiece.IsSame(op))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public override string ToString()

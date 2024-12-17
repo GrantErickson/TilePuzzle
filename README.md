@@ -8,7 +8,7 @@ However, like most other things one thinks they can knock out in an hour or so, 
 
 And it turns out that there is a 'trick' to this puzzle which basically makes it unsolvable with the approach I was taking.
 
-I decided to put a little twist on it and make it solvable by adjusting a piece. However, it now finds 96 solutions with this change. 
+I decided to put a little twist on it and make it solvable by adjusting a piece so that it is solvable with a 90 degree grid method. However, it now finds 48 solutions with this change. 
 
 This code actually does find a solution to a tiling puzzle where you have tiles that you can rotate and flit and put into a grid. 
 
@@ -18,7 +18,7 @@ I thought that the process for solving was interesting and the fact the the corn
 
 ## The Process
 1. Create an array for each piece
-1. Create all the flip and rotate permutations.
+1. Create all the flip and rotate permutations. Remove duplicates.
 1. Place the first piece in the 0,0 location in the grid
 1. Make sure that there are only regions that have 6 or more contiguous spaces. If not this doesn't work.
 1. Find the next open spot and place the next piece there that fits. 

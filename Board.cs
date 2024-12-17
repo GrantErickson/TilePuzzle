@@ -51,9 +51,23 @@ public class Board
                             if (!availablePieces.Any())
                             {
                                 // We found a solution.
-                                Console.WriteLine("Solution Found");
-                                grid.Print();
-                                Solutions.Add(new Grid(grid));
+                                // Make sure it is unique because some rotations are the same.
+                                // This probably shouldn't happen because the duplicate pieces (rotates/flips) are removed at the beginning.
+                                var isUnique = true;
+                                foreach (var solution in Solutions)
+                                {
+                                    if (solution.IsSame(grid))
+                                    {
+                                        isUnique = false;
+                                        break;
+                                    }
+                                }
+                                if (isUnique)
+                                {
+                                    Console.WriteLine("Solution Found");
+                                    grid.Print();
+                                    Solutions.Add(new Grid(grid));
+                                }
                             }
                             else
                             {

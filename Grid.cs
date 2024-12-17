@@ -180,4 +180,17 @@ public class Grid
         Console.ForegroundColor = ConsoleColor.White;
     }
 
+    public bool IsSame(Grid grid)
+    {
+        for (int x = 0; x < Width; x++)
+        {
+            for (int y = 0; y < Height; y++)
+            {
+                if (Pieces[x, y] != grid.Pieces[x, y]) return false;
+                if (Spots[x, y] != grid.Spots[x, y]) return false;
+            }
+        }
+        return true;
+    }
+
 }

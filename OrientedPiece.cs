@@ -22,14 +22,17 @@ public class OrientedPiece
         }
     }
 
-    public string AngleSymbol { get
+    public string AngleSymbol
+    {
+        get
         {
             if (Angle == 0) return "🡑";
             if (Angle == 90) return "🡒";
             if (Angle == 180) return "🡓";
             if (Angle == 270) return "🡐";
             return "▮";
-        } }
+        }
+    }
     public string IsFlippedSymbol => IsFlipped ? "🡘" : " ";
 
     public OrientedPiece(int width, int height, int angle, bool isFlipped, Piece piece)
@@ -113,5 +116,18 @@ public class OrientedPiece
     public override string ToString()
     {
         return Grid.Print();
+    }
+
+    public bool IsSame(OrientedPiece op)
+    {
+        if (op.Width != Width || op.Height != Height) return false;
+        for (int x = 0; x < Width; x++)
+        {
+            for (int y = 0; y < Height; y++)
+            {
+                if (op.Grid[x, y] != Grid[x, y]) return false;
+            }
+        }
+        return true;
     }
 }
