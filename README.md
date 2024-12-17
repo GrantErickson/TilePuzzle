@@ -26,12 +26,15 @@ I thought that the process for solving was interesting and the fact the the corn
 
 One of the keys to speed was checking if there was an enclosed space that wasn't at least squares in size. If so, the program backtracks and tries a different piece in the location iteratively finding the solution.
 
-Additionally, this puzzle was challenging because it had the partial pieces. Some pieces were concave and some were convex. The general approach for the array values was as follows.
+Additionally, this puzzle was challenging because it had the partial aspects of the pieces. Some pieces were concave and some were convex. The general approach for the array values was as follows.
 1. Empty Square: 0
 2. Full square: 1
 3. Convex partial: +45, +135, +225, +315. This way I knew which concave pieces would fit.
 4. Concave partial: -45, -135, -225, -315. If these would combine the additive value would be either 180 or -180.
-5. If it was combined: -180 or 180. This does lose some data and would have been nice to display.
+5. If it was combined: -180 or 180. This does lose some data and would have been nice to display. But the two extra needed unicode characters don't exist anyway.
+6. The logic to check for filled squares is now >0 or != -180. 
+
+I did try making the numbers for the angled pieces exact opposites, which causes them to add to zero, but that added extra code and other arbitrary numbers for the two parts coming together so I left it.
 
 Also, while I was tracking the approximate (no x and y offsets) locations of the pieces, it would have been cool to show the pieces in the output in color so each piece was obvious on the printouts. 
 
