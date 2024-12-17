@@ -8,7 +8,7 @@ However, like most other things one thinks they can knock out in an hour or so, 
 
 And it turns out that there is a 'trick' to this puzzle which basically makes it unsolvable with the approach I was taking.
 
-I decided to put a little twist on it and make it solvable by adjusting a piece. 
+I decided to put a little twist on it and make it solvable by adjusting a piece. However, it now finds 96 solutions with this change. 
 
 This code actually does find a solution to a tiling puzzle where you have tiles that you can rotate and flit and put into a grid. 
 
