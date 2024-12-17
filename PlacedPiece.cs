@@ -11,14 +11,14 @@ namespace TilePuzzle
         public int X { get; }
         public int Y { get; }
         public OrientedPiece OrientedPiece { get; }
-        public int[,] Grid { get; }
+        public Grid Grid { get; }
         public string PlacementText { get
             {
                 return $"{OrientedPiece.PieceNumber} at {X},{Y} ";
             }
         }
 
-        public PlacedPiece(int x, int y, OrientedPiece orientedPiece, int[,] grid)
+        public PlacedPiece(int x, int y, OrientedPiece orientedPiece, Grid grid)
         {
             X = x;
             Y = y;
