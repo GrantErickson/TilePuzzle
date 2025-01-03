@@ -2,6 +2,8 @@
 I ran across this 3d printed puzzle the other day and was having trouble solving it. 
 I thought I could build a little program to help me solve it.
 
+[Demo](https://replit.com/@ericksong/TilePuzzle)
+
 ![Pices in the puzzle](Pieces.png "Pieces")
 
 However, like most other things one thinks they can knock out in an hour or so, this took many hours.
